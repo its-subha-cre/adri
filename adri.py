@@ -215,57 +215,12 @@ if encoded_images:
 
 
 # Map of Places
-import streamlit as st
-from streamlit_folium import st_folium
-import folium
+
 
 st.subheader("🗺️ Places We've Been Together 💞")
 
 # Center point (Kolkata)
-m = folium.Map(location=[22.54, 88.35], zoom_start=13, tiles="CartoDB positron")
-
-# --- Add Markers ---
-places = [
-    ([22.5448, 88.3426], "Victoria Memorial 🌸", "A lovely walk at Victoria Memorial with me 💖", "red", "heart"),
-    ([22.5284, 88.3339], "Botanical Garden 🌿", "Peaceful time at the Botanical Garden with me 🌿", "green", "leaf"),
-    ([22.5121, 88.3637], "Rabindra Sarobar 🌅", "Sunset moments at Rabindra Sarobar with me 🌅", "purple", "star"),
-    ([22.5006, 88.3598], "South City Mall 🛍️", "Shopping and fun at South City Mall with me 🛍️", "blue", "shopping-cart"),
-    ([22.5553, 88.3312], "Princep Ghat 🌊", "Romantic evening at Princep Ghat with me 🌊", "cadetblue", "tint"),
-    ([22.5370, 88.3317], "Alipore Zoo 🐯", "Cute and funny moments at Alipore Zoo with me 🦁", "orange", "leaf"),
-    ([22.5716, 88.3447], "Metcalfe Hall 🌈", "Memories at Metcalfe Hall with me 📸", "pink", "star"),
-    ([22.5656, 88.3477], "Millennium Park 💫", "Evening breeze at Millennium Park with me 💞", "darkpurple", "heart")
-]
-
-for loc, tooltip, popup, color, icon in places:
-    folium.Marker(
-        location=loc,
-        tooltip=tooltip,
-        popup=popup,
-        icon=folium.Icon(color=color, icon=icon)
-    ).add_to(m)
-
-# --- Display the Map Centered ---
-# Keep width reasonable (e.g., 1000) and height moderate to avoid scroll gaps
-st.markdown(
-    """
-    <style>
-    .map-container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-top: 10px;
-        margin-bottom: -80px; /* reduce bottom white space */
-    }
-    iframe {
-        border-radius: 12px !important;
-    }
-    </style>
-    """, unsafe_allow_html=True
-)
-
-st.markdown('<div class="map-container">', unsafe_allow_html=True)
-st_folium(m, width=1200, height=600)
-st.markdown('</div>', unsafe_allow_html=True)
+st.image("Screenshot (72).png", caption="Places we have spent romantic time together 🎂💖", use_container_width=True)
 
 st.markdown("---")
 st.subheader("👩‍👩‍👧 Adri’s Beautiful Family 💕")
