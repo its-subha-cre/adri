@@ -7,6 +7,7 @@ from streamlit_folium import st_folium
 import streamlit.components.v1 as components
 from base64 import b64encode
 import base64
+import os
 
 # --- Background Image ---
 # --- Background Image ---
@@ -281,13 +282,12 @@ st.markdown("---")
 st.subheader("🎥 A Video Just for You")
 st.markdown("Here's something special I made with all my heart...")
 
-try:
-    video_file = open('WhatsApp Video 2025-11-05 at 9.59.03 PM.mp4', 'rb')
-    video_bytes = video_file.read()
-    st.video(video_bytes)
-except FileNotFoundError:
-    st.warning("Video file not found. Please place your video in the 'videos' folder.")
-st.markdown("---")
+with st.expander("🎥 Watch Our Special Video"):
+    video_path = "WhatsApp Video 2025-11-05 at 9.59.03 PM.mp4"
+    if os.path.exists(video_path):
+        st.video(video_path)
+    else:
+        st.warning("Video file not found!")
 
 # Surprise
 st.subheader("🎁 A Special Surprise")
